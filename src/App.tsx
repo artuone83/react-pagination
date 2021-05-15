@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import PostsWithPagination from './components/PostsWithPagination';
+// https://academind.com/tutorials/reactjs-pagination/
 
 const URL = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -34,11 +35,7 @@ const App: React.FunctionComponent = () => {
       </header>
       <main>
         <h2 style={{ textAlign: 'left' }}>Post List</h2>
-        <PostsWithPagination
-          data={posts}
-          fetchError={fetchError}
-          postsPerPage={10}
-        />
+        <PostsWithPagination data={posts} fetchError={fetchError} />
       </main>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-use-before-define */
 import React from 'react';
@@ -23,24 +24,23 @@ const pageActiveStyle = {
 type Props = {
   data: { body: string; id: number; title: string; userId: number }[];
   fetchError: string;
-  postsPerPage: number;
 };
 
 const PostsWithPagination: React.FunctionComponent<Props> = ({
   data,
   fetchError,
-  postsPerPage,
 }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [pages, setPages] = React.useState<undefined | number>(undefined);
+  const [entries, setEntries] = React.useState(10);
 
   const pagesNumbers = Array.from({ length: pages || 0 }, (_, index) => ({
     id: index + 1,
   }));
 
   React.useEffect(() => {
-    setPages(Math.round(data.length / postsPerPage));
-  }, [data]);
+    setPages(Math.round(data.length / entries));
+  }, [data, entries]);
 
   if (fetchError) {
     return <h2>{fetchError}</h2>;
@@ -57,10 +57,7 @@ const PostsWithPagination: React.FunctionComponent<Props> = ({
   return (
     <div>
       {data
-        .slice(
-          postsPerPage * currentPage - postsPerPage,
-          postsPerPage * currentPage
-        )
+        .slice(entries * currentPage - entries, entries * currentPage)
         .map((post) => {
           return (
             <div key={post.id}>
@@ -86,16 +83,30 @@ const PostsWithPagination: React.FunctionComponent<Props> = ({
           Next
         </button>
       </div>
-      {pagesNumbers.map(({ id }) => (
-        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-        <span
-          style={id === currentPage ? pageActiveStyle : pageNumberStyle}
-          key={id}
-          onClick={() => setCurrentPage(id)}
+      <div style={{ margin: '16px 0' }}>
+        {pagesNumbers.map(({ id }) => (
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+          <span
+            style={id === currentPage ? pageActiveStyle : pageNumberStyle}
+            key={id}
+            onClick={() => setCurrentPage(id)}
+          >
+            {id}
+          </span>
+        ))}
+      </div>
+      <div style={{ margin: '16px 0' }}>
+        <label htmlFor='entries'>Entries: </label>
+        <select
+          name='entries'
+          id='entries'
+          onChange={(e) => setEntries(Number(e.target.value))}
         >
-          {id}
-        </span>
-      ))}
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={40}>40</option>
+        </select>
+      </div>
       <p>Page: {`${currentPage} / ${pages}`}</p>
     </div>
   );
