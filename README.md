@@ -1,6 +1,7 @@
-# React TypeScript Starter Kit
+# Client Side Pagination React TypeScript
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Setup Environment
 
 `npm install`
@@ -28,7 +29,7 @@ If you would like to override the existing one follow the steps below
 
 or
 
- extend _rules_ section in ```.eslintrc.json``` file
+extend _rules_ section in `.eslintrc.json` file
 
 ## Available Scripts
 

@@ -8,6 +8,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "airbnb",
+    "plugin:import/typescript",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -27,6 +28,15 @@
       }
     ],
     "import/extensions": [0],
-    "jsx-quotes": ["error", "prefer-single"]
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/prop-types": [0]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
   }
 }
