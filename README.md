@@ -1,25 +1,34 @@
-# Getting Started with Create React App
+# React TypeScript Starter Kit
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Setup Environment
 
 `npm install`
 
 ## Setup ESLint
 
+Very simple ESLint is enabled for this project.
+If you would like to override the existing one follow the steps below
+
 `npx eslint --init`
 
- - How would you like to use ESLint? *To check syntax, find problems, and enforce code style*
-- What type of modules does your project use? *JavaScript modules (import/export)*
-- Which framework does your project use? *React*
-- Does your project use TypeScript? *Yes*
-- Where does your code run? *Browser*
-- How would you like to define a style for your project? *Use a popular style guide*
-- Which style guide do you want to follow? *Airbnb (https://github.com/airbnb/javascript)*
-- What format do you want your config file to be in? *JSON*
-- Would you like to install them now with npm? *Yes*
+---
 
+- How would you like to use ESLint? _To check syntax, find problems, and enforce code style_
+- What type of modules does your project use? _JavaScript modules (import/export)_
+- Which framework does your project use? _React_
+- Does your project use TypeScript? _Yes_
+- Where does your code run? _Browser_
+- How would you like to define a style for your project? _Use a popular style guide_
+- Which style guide do you want to follow? _Airbnb (https://github.com/airbnb/javascript)_
+- What format do you want your config file to be in? _JSON_
+- Would you like to install them now with npm? _Yes_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+
+or
+
+ extend _rules_ section in ```.eslintrc.json``` file
 
 ## Available Scripts
 
